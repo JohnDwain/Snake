@@ -17,7 +17,7 @@ public class Model {
     private static int width = 41;
     private static int height = 12;
     private static boolean gameOver = false;
-    private File file = new File("C:\\Users\\Fabio\\Repositories\\Snake\\src\\main\\java\\board.txt");
+    private File file = new File("src\\main\\java\\board.txt");
     private Scanner scanner;
     private String line;
 
