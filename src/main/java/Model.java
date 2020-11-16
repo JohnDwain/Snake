@@ -61,12 +61,10 @@ public class Model {
     }
 
     public void checks(int y, int x) {
-        if (getCharacterOnBoard(y,x).equals('#')) {
+        if (getCharacterOnBoard(y,x).equals('#') || Model.getCharacterOnBoard(y,x).equals('@') ) {
             gameOver = true;
         } else if (Model.getCharacterOnBoard(y,x).equals('o')) {
             // add character "@" to snake body
-        } else if (Model.getCharacterOnBoard(y,x).equals('@')) {
-            gameOver = true;
         }
     }
 

@@ -11,7 +11,6 @@ import java.util.TimerTask;
 public class Controller {
     private static Model model;
     private static Output output;
-
     public static void main(String[] args) throws FileNotFoundException {
         model = new Model();
         output = new Output();
@@ -23,17 +22,16 @@ public class Controller {
         timer.schedule (new TimerTask() {
             @Override
             public void run() {
-                if (true) { // getInput() != null
-                    model.moveSnake("w"); // getInput()
-                    if (model.getGameOver() == true) {
-                        output.printBoard(model.getBoard());
-                        System.out.println("GAME OVER");
-                        timer.cancel();
-                    } else {
-                        output.printBoard(model.getBoard());
-                    }
+                model.moveSnake("w"); // getInput()
+                if (model.getGameOver() == true) {
+                    output.printBoard(model.getBoard());
+                    System.out.println("GAME OVER");
+                    timer.cancel();
+                } else {
+                    output.printBoard(model.getBoard());
                 }
             }
         }, begin, timeInterval);
+
     }
 }
