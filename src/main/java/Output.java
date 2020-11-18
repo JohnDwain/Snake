@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Output {
 
+    //TODO: Output to swing dialog window
     public void printBoard(Character[][] staticBoard) {
         StringBuffer line = new StringBuffer();
         Character charToAppend;
