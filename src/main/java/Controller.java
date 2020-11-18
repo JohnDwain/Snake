@@ -12,9 +12,8 @@ public class Controller {
     private static Model model;
     private static Output output;
     public static void main(String[] args) throws FileNotFoundException {
-        model = new Model();
+        model = new Model("src\\main\\java\\board.txt");
         output = new Output();
-        model.readBoard();
 
         Timer timer = new Timer();
         int begin = 0;
@@ -22,16 +21,13 @@ public class Controller {
         timer.schedule (new TimerTask() {
             @Override
             public void run() {
-                model.moveSnake("w"); // getInput()
+                model.processInput("s"); // getInput()
+                output.printBoard(model.getStaticBoard());
                 if (model.getGameOver() == true) {
-                    output.printBoard(model.getBoard());
                     System.out.println("GAME OVER");
                     timer.cancel();
-                } else {
-                    output.printBoard(model.getBoard());
                 }
             }
         }, begin, timeInterval);
-
     }
 }
