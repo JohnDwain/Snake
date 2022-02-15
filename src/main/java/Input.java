@@ -65,3 +65,7 @@ public class Input extends JFrame implements KeyListener {
         System.out.println(input);
     }
 }
+
+/**
+ TEST COMMEND
+ */
