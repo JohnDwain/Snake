@@ -41,6 +41,23 @@ public class Model {
         }
     }
 
+    public static int getHeight() {
+        return 0;
+    }
+
+    public static int getWidth() {
+        return 0;
+    }
+
+    public static int getSnakeHeadCurrentY() {
+        return 0;
+    }
+
+    public static int getSnakeHeadCurrentX() {
+        return 0;
+    }
+
+
     public void processInput(String input) {
         //TODO: Prohibit snake from moving to himself
         if (input.equals("w")) {
