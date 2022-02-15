@@ -6,7 +6,6 @@
  */
 public class Output {
 
-
     public void printBoard(Character[][] board) {
         StringBuffer line = new StringBuffer();
 
