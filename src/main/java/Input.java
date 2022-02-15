@@ -1,16 +1,67 @@
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Input {
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Input extends JFrame implements KeyListener {
+
+    private int input;
+
+
+    public Input(){
+        this.setLayout(new BorderLayout());
+        JTextField field = new JTextField();
+        field.addKeyListener(this);
+        this.add(field, BorderLayout.CENTER);
+        this.pack();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+/*
+    public void keyTyped(KeyEvent e) {
+        System.out.println("KeyTyped: ");
+        if(e.getKeyChar() == KeyEvent.CHAR_UNDEFINED){
+            System.out.println("Kein Unicode-Character gedr\u00FCckt!");
+        }else{
+            System.out.println(e.getKeyChar() + " gedr\u00FCckt!");
+            input = e.getKeyChar();
+        }
+        System.out.println("---");
+    } */
+
+    public void keyTyped(KeyEvent e) {
+        System.out.println("KeyTyped: ");
+        if(e.getKeyChar() == KeyEvent.CHAR_UNDEFINED){
+            System.out.println("Kein Unicode-Character gedr\u00FCckt!");
+        }else{
+            System.out.println(e.getKeyChar() + " gedr\u00FCckt!");
+            input = e.getKeyChar();
+        }
+        System.out.println("---");
+    }
+
+    public void keyPressed(KeyEvent e) {
+        System.out.println("Taste: " + e.getKeyChar() + ", Code: " + e.getKeyCode());
+        System.out.println("Tastenposition: " + e.getKeyLocation());
+        System.out.println("---");
+    }
+
+    public void keyReleased(KeyEvent e) {
+        System.out.println("KeyReleased: ");
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            System.out.println("Programmabbruch!");
+            System.exit(0);
+        }
+        System.out.println("Taste: " + e.getKeyChar() + ", Code: " + e.getKeyCode());
+        System.out.println("---");
+    }
+
+
     public static void main(String[] args) {
-        JFrame f=new JFrame();//creating instance of JFrame
-
-        JButton b=new JButton("start");//creating instance of JButton
-        b.setBounds(130,100,100, 40);//x axis, y axis, width, height
-
-        f.add(b);//adding button in JFrame
-
-        f.setSize(400,500);//400 width and 500 height
-        f.setLayout(null);//using no layout managers
-        f.setVisible(true);//making the frame visible
+        Input input = new Input();
+        System.out.println(input);
     }
 }
